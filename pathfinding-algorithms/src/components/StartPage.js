@@ -1,19 +1,14 @@
 import React from "react"
+import Title from "./Title"
+import StartButton from "./StartButton";
 
-function StartPage(){
-    return(
+function StartPage() {
+    return (
         <div className="start-page">
-            <h1>PATHFINDING ALGORITHMS</h1>
-            <button id="start-button" onClick={startClicked}>START</button>
+            <Title />
+            <StartButton />
         </div>
     )
-}
-
-function startClicked(){
-    console.log("CLICKED")
-    const url = "https://www.google.com"
-    window.location.replace(url)
-    
 }
 
 export default StartPage
