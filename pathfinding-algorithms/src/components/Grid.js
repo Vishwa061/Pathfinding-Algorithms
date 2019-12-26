@@ -5,7 +5,7 @@ function Grid() {
     // var ctx = c.getContext("2d")
     // ctx.stroke()
     return(
-        <canvas id="grid"></canvas>
+        <canvas className="grid"></canvas>
     )
 }
 
