@@ -1,11 +1,13 @@
-import React from "react"
+import React, { Component } from "react"
 
-function ControlPanel() {
-    return(
-        <div className="control-panel">
-            
-        </div>
-    )
+class ControlPanel extends Component {
+    render() {
+        return (
+            <div className="control-panel">
+
+            </div>
+        )
+    }
 }
 
 export default ControlPanel

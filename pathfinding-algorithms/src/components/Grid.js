@@ -1,12 +1,11 @@
-import React from "react"
+import React, { Component } from "react"
 
-function Grid() {
-    // var c = document.getElementById("grid")
-    // var ctx = c.getContext("2d")
-    // ctx.stroke()
-    return(
-        <canvas className="grid"></canvas>
-    )
+class Grid extends Component {
+    render() {
+        return (
+            <canvas className="grid"></canvas>
+        )
+    }
 }
 
 export default Grid
