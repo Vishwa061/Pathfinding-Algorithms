@@ -14,12 +14,12 @@ html {
 }
 
 .grid {
+    float: left;
     background-color: rgba(255, 255, 255, 0.4);
     width: 94vw;
     height: 37vw;
-    left: 3%;
+    margin-left: 2vw;
     top: 13%;
-    position: absolute;
     border-color: white;
     border-width: 0.8vw;
     border-style: solid;
@@ -32,6 +32,16 @@ html {
     box-sizing: border-box;
     width: 23vw;
     height: 3vw;
+    margin-top: 0.8vw;
+    margin-right: 2vw;
+}
+
+.legend {
+    float: right;
+    background-color: white;
+    box-sizing: border-box;
+    width: 60vw;
+    height: 2vw;
     margin-top: 0.8vw;
     margin-right: 2vw;
 }
