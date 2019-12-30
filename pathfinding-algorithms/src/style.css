@@ -10,15 +10,15 @@ html {
     font-weight: 700;
     font-size: 2vw;
     float: left;
-    padding-left: 2vw;
+    padding-left: 3vw;
 }
 
 .grid {
     float: left;
-    background-color: rgba(255, 255, 255, 0.4);
-    width: 94vw;
+    background-color: white;
+    width: 91.9vw;
     height: 35vw;
-    margin-left: 2vw;
+    margin-left: 3vw;
     top: 13%;
     border-color: white;
     border-width: 0.8vw;
@@ -32,7 +32,7 @@ html {
     width: 30vw;
     height: 3vw;
     margin-top: 0.8vw;
-    margin-right: 1.8vw;
+    margin-right: 2.5vw;
 }
 
 .legend {
@@ -41,7 +41,7 @@ html {
     width: 80vw;
     height: 4vw;
     margin-top: 0.8vw;
-    margin-right: 2vw;
+    margin-right: 3vw;
 }
 
 .DD {
@@ -141,4 +141,12 @@ html {
 .symbol {
     width: inherit;
     height: inherit;
+}
+
+.node {
+    width: 2vw;
+    height: 2vw;
+    margin-right: 1vw;
+    margin-bottom: 1vw;
+    float: left;
 }

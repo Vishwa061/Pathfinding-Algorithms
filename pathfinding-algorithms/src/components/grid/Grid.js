@@ -1,39 +1,30 @@
 import React, { Component } from "react"
-import p5 from "p5"
-import P5Wrapper from "react-p5-wrapper"
-
+import Node from "./Node"
+import TwoDArray from "./TwoDArray"
 class Grid extends Component {
     render() {
+        var rows = 10
+        var cols = 30
+        var nodeGrid = TwoDArray(rows)
+        var grid = []
+
+        for (var i = 0; i < rows; i++) {
+            grid.push(<tr />)
+            for (var j = 0; j < cols; j++) {
+                nodeGrid[i][j] = <Node color="gray" />
+                grid.push(nodeGrid[i][j])
+            }
+        }
+        console.log(nodeGrid)
+
         return (
             <div className="grid">
-                <P5Wrapper sketch={sketch} />
+                <table>
+                    {grid}
+                </table>
             </div>
         )
     }
 }
-
-function sketch (p) {
-    let rotation = 0;
-  
-    p.setup = function () {
-      p.createCanvas(600, 400, p.WEBGL);
-    };
-  
-    p.myCustomRedrawAccordingToNewPropsHandler = function (props) {
-      if (props.rotation){
-        rotation = props.rotation * Math.PI / 180;
-      }
-    };
-  
-    p.draw = function () {
-      p.background(100);
-      p.normalMaterial();
-      p.noStroke();
-      p.push();
-      p.rotateY(rotation);
-      p.box(100);
-      p.pop();
-    };
-  };
 
 export default Grid
