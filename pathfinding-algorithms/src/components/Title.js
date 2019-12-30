@@ -2,7 +2,7 @@ import React from "react"
 
 function Title() {
     return(
-        <h1 id="title">PATHFINDING ALGORITHMS</h1>
+        <h1 id="title">PATHFINDER VISUAL</h1>
     )
 }
 
