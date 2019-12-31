@@ -16,7 +16,7 @@ class Grid extends Component {
                 grid.push(nodeGrid[i][j])
             }
         }
-        // console.log(nodeGrid)
+        // console.log(nodeGrid) 
 
         return (
             <table className="grid">

@@ -24,32 +24,43 @@ const build = [
     }
 ]
 
-export {build}
+export { build }
 
 const solve = [
     {
         name: "A* Algorithm",
         func: () => {
-            console.log("Executing A*")
+            if (Handler.isValid()) {
+                console.log("Executing A*")
+            }
         }
     },
     {
         name: "Dijkstra's Algorithm",
         func: () => {
-            console.log("Executing Dijkstra's")
+            if (Handler.isValid()) {
+                console.log("Executing Dijkstra's")
+            }
         }
     }
 ]
 
-export {solve}
+export { solve }
 
 const help = [
     {
         name: "Settings",
         func: () => {
-            console.log("Changing Settings . . .")
+            console.log("Changing Settings")
+        }
+    },
+    {
+        name: "Full Screen",
+        func: () => {
+            console.log("Full Screen Requested")
+            Handler.openFullScreen(document.documentElement)
         }
     }
 ]
 
-export {help}
+export { help }

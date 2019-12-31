@@ -6,40 +6,63 @@ class Handler {
     static startNode = null
     static endNode = null
 
-    static setClickType(type) { 
-        Handler.clickType = type 
+    static openFullScreen(elem) {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+        }
+    }
+
+    static isValid() {
+        if (this.startNode === null) {
+            alert("Select a start point") /////////////////REMOVE/////////////////
+            return false
+        } else if (this.endNode === null) {
+            alert("Select a end point") /////////////////REMOVE/////////////////
+            return false
+        }
+        return true
+    }
+
+    static setClickType(type) {
+        this.clickType = type
     }
 
     static setWall(node) {
-        if(Handler.areNodesEqual(node, Handler.startNode)) {
-            Handler.startNode = null
-        } else if(Handler.areNodesEqual(node, Handler.endNode)){
-            Handler.endNode = null
+        if (this.areNodesEqual(node, this.startNode)) {
+            this.startNode = null
+        } else if (this.areNodesEqual(node, this.endNode)) {
+            this.endNode = null
         }
     }
 
     static setStart(node) {
-        if (Handler.startNode != null) {
-            Handler.startNode.grayOut()
+        if (this.startNode != null) {
+            this.startNode.grayOut()
         }
-        Handler.startNode = node
-        if (Handler.areNodesEqual(Handler.startNode, Handler.endNode)){
-            Handler.endNode = null
+        this.startNode = node
+        if (this.areNodesEqual(this.startNode, this.endNode)) {
+            this.endNode = null
         }
     }
 
     static setEnd(node) {
-        if (Handler.endNode != null) {
-            Handler.endNode.grayOut()
+        if (this.endNode != null) {
+            this.endNode.grayOut()
         }
-        Handler.endNode = node
-        if (Handler.areNodesEqual(Handler.startNode, Handler.endNode)){
-            Handler.startNode = null
+        this.endNode = node
+        if (this.areNodesEqual(this.startNode, this.endNode)) {
+            this.startNode = null
         }
     }
 
     static areNodesEqual(nodeA, nodeB) {
-        if (nodeA === nodeB && nodeA != null){
+        if (nodeA === nodeB && nodeA != null) {
             return true
         }
         return false

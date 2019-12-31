@@ -19,12 +19,10 @@ class Node extends Component {
             if (Handler.clickType === "add walls") {
                 Handler.setWall(this)
                 return { color: "black" }
-            }
-            else if (Handler.clickType === "select start") {
+            } else if (Handler.clickType === "select start") {
                 Handler.setStart(this)
                 return { color: "orange" }
-            }
-            else if (Handler.clickType === "select end") {
+            } else if (Handler.clickType === "select end") {
                 Handler.setEnd(this)
                 return { color: "blue" }
             }
@@ -42,7 +40,11 @@ class Node extends Component {
 
     render() {
         return (
-            <tbody className="node" style={{ backgroundColor: this.state.color }} onClick={this.handleClick} />
+            <tbody
+                className="node"
+                style={{ backgroundColor: this.state.color }}
+                onClick={this.handleClick}
+            />
         )
     }
 }
