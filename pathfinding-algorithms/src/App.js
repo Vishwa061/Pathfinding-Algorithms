@@ -11,7 +11,7 @@ class App extends Component {
                 <Title />
                 <ControlPanel />
                 <Grid />
-                <Legend/>
+                <Legend />
             </div>
         )
     }
