@@ -6,6 +6,7 @@ html {
 }
 
 #title {
+    cursor: default;
     color: rgba(0, 255, 255, 0.67);
     font-weight: 700;
     font-size: 2vw;
