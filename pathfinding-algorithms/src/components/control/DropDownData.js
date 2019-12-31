@@ -24,8 +24,6 @@ const build = [
     }
 ]
 
-export { build }
-
 const solve = [
     {
         name: "A* Algorithm",
@@ -45,8 +43,6 @@ const solve = [
     }
 ]
 
-export { solve }
-
 const help = [
     {
         name: "Settings",
@@ -60,7 +56,15 @@ const help = [
             console.log("Full Screen Requested")
             Handler.openFullScreen(document.documentElement)
         }
+    },
+    {
+        name: "About",
+        func: () => {
+            console.log("About")
+        }
     }
 ]
 
+export { build }
+export { solve }
 export { help }

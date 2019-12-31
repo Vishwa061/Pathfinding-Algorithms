@@ -1,17 +1,15 @@
 import React, { Component } from "react"
 import Handler from "../Handler"
 
-class Node extends Component {
-    constructor(row, col) {
+export default class Node extends Component {
+    constructor() {
         super()
         this.state = {
-            color: "gray",
-            row: row,
-            col: col
+            color: "gray"
         }
 
         this.handleClick = this.handleClick.bind(this)
-        this.grayOut = this.grayOut.bind(this)
+        this.setColor = this.setColor.bind(this)
     }
 
     handleClick() {
@@ -31,11 +29,8 @@ class Node extends Component {
         })
     }
 
-    grayOut() {
-        // console.log("grayed out")
-        this.setState(prevState => {
-            return { color: "gray", row: prevState.row, col: prevState.col }
-        })
+    setColor(c) {
+        this.setState({ color: c })
     }
 
     render() {
@@ -48,5 +43,3 @@ class Node extends Component {
         )
     }
 }
-
-export default Node

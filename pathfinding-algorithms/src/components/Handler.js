@@ -1,10 +1,13 @@
-// import {nodeGrid} from "./grid/Grid"
-// import Node from "./grid/Node"
+import { nodeGrid } from "./grid/Grid"
 
-class Handler {
+export default class Handler {
     static clickType = "none"
     static startNode = null
     static endNode = null
+
+    static setNodeColor(row, col, color) {
+        nodeGrid[row][col].setColor(color)
+    }
 
     static openFullScreen(elem) {
         if (elem.requestFullscreen) {
@@ -43,7 +46,7 @@ class Handler {
 
     static setStart(node) {
         if (this.startNode != null) {
-            this.startNode.grayOut()
+            this.startNode.setColor("gray")
         }
         this.startNode = node
         if (this.areNodesEqual(this.startNode, this.endNode)) {
@@ -53,7 +56,7 @@ class Handler {
 
     static setEnd(node) {
         if (this.endNode != null) {
-            this.endNode.grayOut()
+            this.endNode.setColor("gray")
         }
         this.endNode = node
         if (this.areNodesEqual(this.startNode, this.endNode)) {
@@ -68,5 +71,3 @@ class Handler {
         return false
     }
 }
-
-export default Handler

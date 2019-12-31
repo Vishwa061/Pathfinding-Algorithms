@@ -4,7 +4,7 @@ import Grid from "./components/grid/Grid"
 import ControlPanel from "./components/control/ControlPanel"
 import Legend from "./components/legend/Legend"
 
-class App extends Component {
+export default class App extends Component {
     render() {
         return (
             <div className="app">
@@ -16,5 +16,3 @@ class App extends Component {
         )
     }
 }
-
-export default App
