@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Handler from "../Handler"
+import Handler from "../../general/Handler"
 
 export default class Node extends Component {
     constructor(props) {

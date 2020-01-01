@@ -1,4 +1,4 @@
-import Handler from "../Handler"
+import Handler from "../../general/Handler"
 
 const build = [
     {
@@ -68,6 +68,7 @@ const help = [
         name: "About",
         func: () => {
             console.log("About")
+            // Handler.setNodeColor(1,1,"red")
         }
     }
 ]

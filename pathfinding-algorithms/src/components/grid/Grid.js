@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Node from "./Node"
-import TwoDArray from "../TwoDArray"
+import TwoDArray from "../../general/TwoDArray"
 
 export default class Grid extends Component {
     render() {

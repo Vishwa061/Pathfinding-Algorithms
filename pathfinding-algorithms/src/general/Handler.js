@@ -1,4 +1,5 @@
 import TwoDArray from "./TwoDArray"
+import AStar from "../algorithms/AStar"
 
 export default class Handler {
     static clickType = "none"
@@ -6,6 +7,14 @@ export default class Handler {
     static endNode = null
     static walls = []
     static grid = TwoDArray(13)
+
+    static executeAStar() {
+        AStar(
+            { walls: this.walls, rows: 13, cols: 36 },
+            { row: this.startNode.state.row, col: this.startNode.state.col },
+            { row: this.endNode.state.row, col: this.endNode.state.col }
+        )
+    }
 
     static setNodeColor(row, col, color) {
         this.grid[row][col].setColor(color)
@@ -16,17 +25,14 @@ export default class Handler {
     }
 
     static clearGrid() {
-        if (this.startNode !== null){
-            this.startNode.setColor("gray")
-            this.startNode = null
-        }
-        if (this.endNode !== null){
-            this.endNode.setColor("gray")
-            this.endNode = null
-        }
-        this.walls.forEach(wall => {
-            wall.setColor("gray")
+        this.grid.forEach(nodeArr => {
+            nodeArr.forEach(node => {
+                node.setColor("gray")
+            })
         })
+
+        this.endNode = null
+        this.startNode = null
         this.walls = []
     }
 
