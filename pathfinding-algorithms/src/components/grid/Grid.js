@@ -1,29 +1,23 @@
 import React, { Component } from "react"
 import Node from "./Node"
-import TwoDArray from "./TwoDArray"
-
-var rows = 13
-var cols = 36
-var nodeGrid = TwoDArray(rows)
+import TwoDArray from "../TwoDArray"
 
 export default class Grid extends Component {
     render() {
-        var grid = []
-        for (var i = 0; i < rows; i++) {
-            // grid.push(<tbody />)
-            for (var j = 0; j < cols; j++) {
-                nodeGrid[i][j] = <Node />
-                grid.push(nodeGrid[i][j])
+        let rows = 13
+        let cols = 36
+        let nodeGrid = TwoDArray(rows)
+
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                nodeGrid[row][col] = <Node r={row} c={col}/>
             }
         }
-        // console.log(nodeGrid) 
 
         return (
             <table className="grid">
-                {grid}
+                {nodeGrid}
             </table>
         )
     }
 }
-
-export { nodeGrid }

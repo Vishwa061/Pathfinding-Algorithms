@@ -1,7 +1,7 @@
 export default size => {
-    var arr = []
+    let arr = []
 
-    for (var i = 0; i < size; i++) {
+    for (let i = 0; i < size; i++) {
         arr[i] = []
     }
     return arr

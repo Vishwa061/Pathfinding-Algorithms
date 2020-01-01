@@ -4,22 +4,29 @@ const build = [
     {
         name: "Select Start",
         func: () => {
-            console.log("Select Start")
+            console.log("Selecting Start")
             Handler.setClickType("select start")
         }
     },
     {
         name: "Select End",
         func: () => {
-            console.log("Select End")
+            console.log("Selecting End")
             Handler.setClickType("select end")
         }
     },
     {
         name: "Add Walls",
         func: () => {
-            console.log("Add Walls")
+            console.log("Adding Walls")
             Handler.setClickType("add walls")
+        }
+    },
+    {
+        name: "Clear Grid",
+        func: () => {
+            console.log("Clearing grid")
+            Handler.clearGrid()
         }
     }
 ]

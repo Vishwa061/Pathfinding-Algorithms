@@ -2,38 +2,45 @@ import React, { Component } from "react"
 import Handler from "../Handler"
 
 export default class Node extends Component {
-    constructor() {
+    constructor(props) {
         super()
         this.state = {
-            color: "gray"
+            color: "gray",
+            row: props.r,
+            col: props.c
         }
-
         this.handleClick = this.handleClick.bind(this)
         this.setColor = this.setColor.bind(this)
     }
 
     handleClick() {
-        this.setState(prevState => {
-            if (Handler.clickType === "add walls") {
+        switch (Handler.clickType) {
+            case "add walls": {
                 Handler.setWall(this)
-                return { color: "black" }
-            } else if (Handler.clickType === "select start") {
-                Handler.setStart(this)
-                return { color: "orange" }
-            } else if (Handler.clickType === "select end") {
-                Handler.setEnd(this)
-                return { color: "blue" }
+                break
             }
-
-            return prevState;
-        })
+            case "select start": {
+                Handler.setStart(this)
+                break
+            }
+            case "select end": {
+                Handler.setEnd(this)
+                break
+            }
+            default: {
+                break
+            }
+        }
     }
 
     setColor(c) {
-        this.setState({ color: c })
+        this.setState(prevState => {
+            return { color: c, row: prevState.row, col: prevState.col}
+        })
     }
 
     render() {
+        Handler.addNodeToGrid(this)
         return (
             <tbody
                 className="node"
