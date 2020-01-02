@@ -37,6 +37,7 @@ const solve = [
         func: () => {
             if (Handler.isValid()) {
                 console.log("Executing A*")
+                Handler.executeAStar()
             }
         }
     },
@@ -68,7 +69,6 @@ const help = [
         name: "About",
         func: () => {
             console.log("About")
-            // Handler.setNodeColor(1,1,"red")
         }
     }
 ]

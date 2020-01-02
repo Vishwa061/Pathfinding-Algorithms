@@ -10,10 +10,14 @@ export default class Handler {
 
     static executeAStar() {
         AStar(
-            { walls: this.walls, rows: 13, cols: 36 },
+            { walls: this.getWalls(), rows: 13, cols: 36 },
             { row: this.startNode.state.row, col: this.startNode.state.col },
             { row: this.endNode.state.row, col: this.endNode.state.col }
         )
+    }
+
+    static getWalls() {
+        return this.walls.map(wall => ({ row: wall.state.row, col: wall.state.col }))
     }
 
     static setNodeColor(row, col, color) {
