@@ -103,7 +103,7 @@ export default class Handler {
             this.walls.push(node)
         } else if (node.state.style.backgroundColor === "black") {
             node.setColor("gray")
-            this.walls = this.walls.filter(e => !this.areNodesEqual(e, node))
+            this.walls = this.walls.filter(wall => !this.areNodesEqual(wall, node))
             // console.log("row:" + Number(node.state.row) + ", col:" + Number(node.state.col))
         } else {
             node.setColor("black")
@@ -121,6 +121,7 @@ export default class Handler {
         }
         this.startNode = node
         node.setColor("orange")
+        this.removeNodeFromWall(node)
     }
 
     static setEnd(node) {
@@ -132,6 +133,13 @@ export default class Handler {
         }
         this.endNode = node
         node.setColor("blue")
+        this.removeNodeFromWall(node)
+    }
+
+    static removeNodeFromWall(node) {
+        this.walls = this.walls.filter(wall => {
+            return !this.areNodesEqual(wall, node)
+        })
     }
 
     static areNodesEqual(nodeA, nodeB) {
