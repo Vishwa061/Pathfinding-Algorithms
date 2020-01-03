@@ -138,11 +138,13 @@ html {
     margin-right: 1vw;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.4);
+    border-radius: 0.5vw;
 }
 
 .symbol {
     width: inherit;
     height: inherit;
+    border-radius: 0.5vw;
 }
 
 .node {
@@ -156,4 +158,9 @@ html {
 
 .node:hover {
     cursor: pointer;
+}
+
+@keyframes waves {
+    from {background-color: red;}
+    to {background-color: rgb(80, 0, 0);}
 }

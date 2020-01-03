@@ -3,9 +3,9 @@ import Handler from "../../general/Handler"
 
 export default class Node extends Component {
     constructor(props) {
-        super()
+        super(props)
         this.state = {
-            color: "gray",
+            style: { backgroundColor: "gray" },
             row: props.r,
             col: props.c
         }
@@ -33,10 +33,26 @@ export default class Node extends Component {
         }
     }
 
-    setColor(c) {
-        this.setState(prevState => {
-            return { color: c, row: prevState.row, col: prevState.col}
-        })
+    setColor(c, isAnimated) {
+        if (isAnimated) {
+            setTimeout(() => {
+                this.setState(prevState => {
+                    let animatedStyle = {
+                        backgroundColor: c,
+                        animationName: "waves",
+                        animationDuration: "0.3s",
+                        animationTimingFunction: "ease-out",
+                        animationIterationCount: "5"
+                    }
+                    return { style: animatedStyle, row: prevState.row, col: prevState.col }
+                })
+            }, 0)
+        } 
+        else {
+            this.setState(prevState => {
+                return { style: { backgroundColor: c }, row: prevState.row, col: prevState.col }
+            })
+        }
     }
 
     render() {
@@ -44,8 +60,9 @@ export default class Node extends Component {
         return (
             <tbody
                 className="node"
-                style={{ backgroundColor: this.state.color }}
+                style={this.state.style}
                 onClick={this.handleClick}
+                //make walls easier to add
             />
         )
     }

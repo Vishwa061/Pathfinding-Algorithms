@@ -28,6 +28,13 @@ const build = [
             console.log("Clearing grid")
             Handler.clearGrid()
         }
+    },
+    {
+        name: "Clear Path",
+        func: () => {
+            console.log("Clearing path")
+            Handler.clearPath()
+        }
     }
 ]
 
@@ -38,6 +45,7 @@ const solve = [
             if (Handler.isValid()) {
                 console.log("Executing A*")
                 Handler.executeAStar()
+                Handler.wasAlgorithmExecuted = true
             }
         }
     },
@@ -46,6 +54,7 @@ const solve = [
         func: () => {
             if (Handler.isValid()) {
                 console.log("Executing Dijkstra's")
+                Handler.wasAlgorithmExecuted = true
             }
         }
     }

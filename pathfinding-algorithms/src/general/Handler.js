@@ -7,6 +7,8 @@ export default class Handler {
     static endNode = null
     static walls = []
     static grid = TwoDArray(13)
+    static path = []
+    static wasAlgorithmExecuted = false
 
     static executeAStar() {
         AStar(
@@ -20,8 +22,19 @@ export default class Handler {
         return this.walls.map(wall => ({ row: wall.state.row, col: wall.state.col }))
     }
 
-    static setNodeColor(row, col, color) {
-        this.grid[row][col].setColor(color)
+    static displayPath() {
+        for (let i = 0; i < this.path.length; i++) {
+            this.grid[this.path[i].row][this.path[i].col].setColor(this.path[i].color, true)
+        }
+        this.clickType = "none"
+    }
+
+    static setNodeColor(row, col, color, isAnimated) {
+        if (isAnimated) {
+            this.path.push({ row: row, col: col, color: color })
+        } else {
+            this.grid[row][col].setColor(color)
+        }
     }
 
     static addNodeToGrid(node) {
@@ -38,6 +51,14 @@ export default class Handler {
         this.endNode = null
         this.startNode = null
         this.walls = []
+        this.path = []
+    }
+
+    static clearPath(){
+        for (let i = 0; i < this.path.length; i++) {
+            this.grid[this.path[i].row][this.path[i].col].setColor("gray")
+        }
+        this.path = []
     }
 
     static openFullScreen(elem) {
@@ -59,6 +80,9 @@ export default class Handler {
         } else if (this.endNode === null) {
             alert("Select a end point") /////////////////REMOVE/////////////////
             return false
+        } else if (this.wasAlgorithmExecuted){
+            this.clearPath()
+            Handler.wasAlgorithmExecuted = false
         }
         return true
     }
@@ -76,9 +100,9 @@ export default class Handler {
             this.endNode = null
             node.setColor("black")
             this.walls.push(node)
-        } else if (node.state.color === "black") {
+        } else if (node.state.style.backgroundColor === "black") {
             node.setColor("gray")
-            this.walls = this.walls.filter(e => e !== node)
+            this.walls = this.walls.filter(e => !this.areNodesEqual(e, node))
             // console.log("row:" + Number(node.state.row) + ", col:" + Number(node.state.col))
         } else {
             node.setColor("black")

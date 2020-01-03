@@ -20,8 +20,6 @@ export default function AStar(gridData, startPoint, endPoint) {
     const SW = [1, -1], S = [1, 0], SE = [1, 1]
     const directions = [NW, N, NE, W, E, SW, S, SE]
     const exploredColor = "red"
-    const startNodeColor = "yellow"
-    const endNodeColor = "blue"
     const shortestPathColor = "green"
 
     open.push(startNode)
@@ -33,8 +31,6 @@ export default function AStar(gridData, startPoint, endPoint) {
         if (current.equals(endNode)) {
             // console.log("PATH FOUND")
             displayShortestPath(current.parent)
-            Handler.setNodeColor(startNode.row, startNode.col, startNodeColor)
-            Handler.setNodeColor(endNode.row, endNode.col, endNodeColor)
             pathFound = true
             break
         }
@@ -54,21 +50,26 @@ export default function AStar(gridData, startPoint, endPoint) {
                 neighbour.parent = current
                 if (isNotInOpen) {
                     open.push(neighbour)
-                    Handler.setNodeColor(neighbour.row, neighbour.col, exploredColor)
+                    if (!neighbour.equals(endNode)) {
+                        Handler.setNodeColor(neighbour.row, neighbour.col, exploredColor, true)
+                    }
                 }
             }
         }
     }
-    if (pathFound === false) {
+    if (pathFound) {
+        console.log(Handler.path)
+        Handler.displayPath()
+    } else {
         // console.log("PATH NOT FOUND")
     }
 
     ///////////////// ALGORITHM FUNCTIONS //////////////////
 
     function displayShortestPath(parentNode) {
-        if (parentNode !== null) {
-            Handler.setNodeColor(parentNode.row, parentNode.col, shortestPathColor)
+        if (!parentNode.equals(startNode)) {
             displayShortestPath(parentNode.parent)
+            Handler.setNodeColor(parentNode.row, parentNode.col, shortestPathColor, true)
         }
     }
 
