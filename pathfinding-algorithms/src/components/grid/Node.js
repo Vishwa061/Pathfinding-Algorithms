@@ -9,26 +9,34 @@ export default class Node extends Component {
             row: props.r,
             col: props.c
         }
-        this.handleClick = this.handleClick.bind(this)
+        this.handleMouseDown = this.handleMouseDown.bind(this)
+        this.handleMouseEnter = this.handleMouseEnter.bind(this)
         this.setColor = this.setColor.bind(this)
     }
 
-    handleClick() {
-        switch (Handler.clickType) {
-            case "add walls": {
-                Handler.setWall(this)
-                break
-            }
-            case "select start": {
-                Handler.setStart(this)
-                break
-            }
-            case "select end": {
-                Handler.setEnd(this)
-                break
-            }
-            default: {
-                break
+    handleMouseDown() {
+        this.handleMouseEnter(true)
+    }
+
+    handleMouseEnter(isDown) {
+        // console.log(Handler.mouseIsDown)
+        if (Handler.mouseIsDown || isDown === true) {
+            switch (Handler.clickType) {
+                case "add walls": {
+                    Handler.setWall(this)
+                    break
+                }
+                case "select start": {
+                    Handler.setStart(this)
+                    break
+                }
+                case "select end": {
+                    Handler.setEnd(this)
+                    break
+                }
+                default: {
+                    break
+                }
             }
         }
     }
@@ -47,7 +55,7 @@ export default class Node extends Component {
                     return { style: animatedStyle, row: prevState.row, col: prevState.col }
                 })
             }, 0)
-        } 
+        }
         else {
             this.setState(prevState => {
                 return { style: { backgroundColor: c }, row: prevState.row, col: prevState.col }
@@ -61,8 +69,8 @@ export default class Node extends Component {
             <tbody
                 className="node"
                 style={this.state.style}
-                onClick={this.handleClick}
-                //make walls easier to add
+                onMouseDown={this.handleMouseDown}
+                onMouseEnter={this.handleMouseEnter}
             />
         )
     }

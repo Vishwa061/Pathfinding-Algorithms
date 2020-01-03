@@ -57,9 +57,9 @@ export default function AStar(gridData, startPoint, endPoint) {
             }
         }
     }
+    Handler.displayPath()
     if (pathFound) {
-        console.log(Handler.path)
-        Handler.displayPath()
+        // console.log(Handler.path)
     } else {
         // console.log("PATH NOT FOUND")
     }

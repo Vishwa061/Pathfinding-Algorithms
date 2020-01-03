@@ -9,6 +9,7 @@ export default class Handler {
     static grid = TwoDArray(13)
     static path = []
     static wasAlgorithmExecuted = false
+    static mouseIsDown = false
 
     static executeAStar() {
         AStar(
@@ -54,7 +55,7 @@ export default class Handler {
         this.path = []
     }
 
-    static clearPath(){
+    static clearPath() {
         for (let i = 0; i < this.path.length; i++) {
             this.grid[this.path[i].row][this.path[i].col].setColor("gray")
         }
@@ -80,7 +81,7 @@ export default class Handler {
         } else if (this.endNode === null) {
             alert("Select a end point") /////////////////REMOVE/////////////////
             return false
-        } else if (this.wasAlgorithmExecuted){
+        } else if (this.wasAlgorithmExecuted) {
             this.clearPath()
             Handler.wasAlgorithmExecuted = false
         }

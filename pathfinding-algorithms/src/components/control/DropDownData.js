@@ -5,6 +5,7 @@ const build = [
         name: "Select Start",
         func: () => {
             console.log("Selecting Start")
+            Handler.clearPath()
             Handler.setClickType("select start")
         }
     },
@@ -12,6 +13,7 @@ const build = [
         name: "Select End",
         func: () => {
             console.log("Selecting End")
+            Handler.clearPath()
             Handler.setClickType("select end")
         }
     },
@@ -19,6 +21,7 @@ const build = [
         name: "Add Walls",
         func: () => {
             console.log("Adding Walls")
+            Handler.clearPath()
             Handler.setClickType("add walls")
         }
     },
