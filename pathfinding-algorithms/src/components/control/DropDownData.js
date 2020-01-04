@@ -81,6 +81,9 @@ const help = [
         name: "About",
         func: () => {
             console.log("About")
+            const header = "About"
+            const message = "This app was created by Vishwa Perera"
+            Handler.displayErrorMessage(header, message)
         }
     }
 ]

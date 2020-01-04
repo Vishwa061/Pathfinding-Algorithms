@@ -1,3 +1,5 @@
+// import React from "react"
+// import ReactDOM from "react-dom"
 import TwoDArray from "./TwoDArray"
 import AStar from "../algorithms/AStar"
 
@@ -10,6 +12,7 @@ export default class Handler {
     static path = []
     static wasAlgorithmExecuted = false
     static mouseIsDown = false
+    static popup = null
 
     static executeAStar() {
         AStar(
@@ -86,6 +89,13 @@ export default class Handler {
             Handler.wasAlgorithmExecuted = false
         }
         return true
+    }
+
+    static displayErrorMessage(header, message) {
+        this.popup.state.header = header
+        this.popup.state.message = message
+        this.popup.show()
+        console.log(this.popup)
     }
 
     static setClickType(type) {
