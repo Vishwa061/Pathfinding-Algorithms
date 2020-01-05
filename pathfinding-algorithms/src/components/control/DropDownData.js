@@ -18,11 +18,11 @@ const build = [
         }
     },
     {
-        name: "Add Walls",
+        name: "Select Walls",
         func: () => {
-            console.log("Adding Walls")
+            console.log("Selecting Walls")
             Handler.clearPath()
-            Handler.setClickType("add walls")
+            Handler.setClickType("select walls")
         }
     },
     {

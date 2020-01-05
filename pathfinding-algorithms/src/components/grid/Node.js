@@ -22,7 +22,7 @@ export default class Node extends Component {
         // console.log(Handler.mouseIsDown)
         if (Handler.mouseIsDown || isDown === true) {
             switch (Handler.clickType) {
-                case "add walls": {
+                case "select walls": {
                     Handler.setWall(this)
                     break
                 }
