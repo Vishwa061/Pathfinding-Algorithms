@@ -78,24 +78,36 @@ export default class Handler {
     }
 
     static isValid() {
-        if (this.startNode === null) {
-            alert("Select a start point") /////////////////REMOVE/////////////////
+        if (this.startNode === null && this.endNode === null) {
+            this.displayErrorMessage(
+                "Invalid Grid",
+                "Please select a start and end point"
+            )
+            return false
+        } else if (this.startNode === null) {
+            this.displayErrorMessage(
+                "Invalid Grid",
+                "Please select a start point"
+            )
             return false
         } else if (this.endNode === null) {
-            alert("Select a end point") /////////////////REMOVE/////////////////
+            this.displayErrorMessage(
+                "Invalid Grid",
+                "Please select a end point"
+            )
             return false
         } else if (this.wasAlgorithmExecuted) {
             this.clearPath()
             Handler.wasAlgorithmExecuted = false
         }
         return true
+        
     }
 
     static displayErrorMessage(header, message) {
         this.popup.state.header = header
         this.popup.state.message = message
         this.popup.show()
-        console.log(this.popup)
     }
 
     static setClickType(type) {

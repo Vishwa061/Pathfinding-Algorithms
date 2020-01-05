@@ -211,5 +211,6 @@ html {
 }
 
 .close-popup-btn:hover {
+    cursor: pointer;
     background-color: rgb(156, 156, 156);
 }
