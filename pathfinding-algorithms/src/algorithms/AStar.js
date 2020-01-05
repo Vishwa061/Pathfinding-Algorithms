@@ -28,6 +28,10 @@ export default function AStar(gridData, startPoint, endPoint) {
         open = open.filter(node => !node.equals(current))
         closed.push(current)
 
+        if (!current.equals(startNode) && !current.equals(endNode)) {
+            Handler.setNodeColor(current.row, current.col, exploredColor, true)
+        }
+
         if (current.equals(endNode)) {
             // console.log("PATH FOUND")
             displayShortestPath(current.parent)
@@ -50,9 +54,6 @@ export default function AStar(gridData, startPoint, endPoint) {
                 neighbour.parent = current
                 if (isNotInOpen) {
                     open.push(neighbour)
-                    if (!neighbour.equals(endNode)) {
-                        Handler.setNodeColor(neighbour.row, neighbour.col, exploredColor, true)
-                    }
                 }
             }
         }
