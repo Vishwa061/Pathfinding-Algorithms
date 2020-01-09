@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Node from "./Node"
-import TwoDArray from "../../general/TwoDArray"
+import { TwoDArray } from "../../general/ArraysPlus"
 import Handler from "../../general/Handler"
 
 export default class Grid extends Component {
@@ -12,7 +12,7 @@ export default class Grid extends Component {
     }
 
     toggleMouseIsDown() {
-        if (Handler.mouseIsDown){
+        if (Handler.mouseIsDown) {
             Handler.mouseIsDown = false
         } else {
             Handler.mouseIsDown = true

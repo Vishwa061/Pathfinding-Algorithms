@@ -1,4 +1,4 @@
-import TwoDArray from "../general/TwoDArray"
+import { TwoDArray } from "../general/ArraysPlus"
 
 export default class Node {
     constructor(row, col, traversable) {

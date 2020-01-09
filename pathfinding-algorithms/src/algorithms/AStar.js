@@ -1,5 +1,6 @@
 import Node, { initNodeGrid } from "./Node"
 import Handler from "../general/Handler"
+import { ArrayContains } from "../general/ArraysPlus"
 
 export default function AStar(gridData, startPoint, endPoint) {
     let nodeGrid = initNodeGrid(gridData)
@@ -72,15 +73,6 @@ export default function AStar(gridData, startPoint, endPoint) {
             displayShortestPath(parentNode.parent)
             Handler.setNodeColor(parentNode.row, parentNode.col, shortestPathColor, true)
         }
-    }
-
-    function ArrayContains(array, element) {
-        for (let i = 0; i < array.length; i++) {
-            if (array[i].equals(element)) {
-                return true
-            }
-        }
-        return false
     }
 
     function getNeighbours(r, c) {

@@ -1,6 +1,6 @@
 // import React from "react"
 // import ReactDOM from "react-dom"
-import TwoDArray from "./TwoDArray"
+import { TwoDArray } from "./ArraysPlus"
 import AStar from "../algorithms/AStar"
 
 export default class Handler {
@@ -101,7 +101,7 @@ export default class Handler {
             Handler.wasAlgorithmExecuted = false
         }
         return true
-        
+
     }
 
     static displayErrorMessage(header, message) {
